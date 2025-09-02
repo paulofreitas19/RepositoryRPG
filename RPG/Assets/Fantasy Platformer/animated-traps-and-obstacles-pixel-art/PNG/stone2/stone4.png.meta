@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: e46160e6752dab44799c33cb96037a51
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6952493293832192862
+    second: stone4_0
+  - first:
+      213: 3817835360797091994
+    second: stone4_1
+  - first:
+      213: 8954341782400213589
+    second: stone4_2
+  - first:
+      213: 5302798797595196893
+    second: stone4_3
+  - first:
+      213: 5980576844216993
+    second: stone4_4
+  - first:
+      213: 5595031787099802271
+    second: stone4_5
+  - first:
+      213: -4900021756086311430
+    second: stone4_6
+  - first:
+      213: 6750448230889567939
+    second: stone4_7
+  - first:
+      213: 7681950120672291467
+    second: stone4_8
+  - first:
+      213: 4735889582743498460
+    second: stone4_9
+  - first:
+      213: -1503801345902314334
+    second: stone4_10
+  - first:
+      213: -2932801045844024483
+    second: stone4_11
+  - first:
+      213: -837452628465110819
+    second: stone4_12
+  - first:
+      213: 4257016155922348908
+    second: stone4_13
+  - first:
+      213: 2816149376815951186
+    second: stone4_14
+  - first:
+      213: 2115608612874372912
+    second: stone4_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stone4_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 83
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e53472a90d73c7060800000000000000
+      internalID: 6952493293832192862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 86
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a986c3b680dabf430800000000000000
+      internalID: 3817835360797091994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 82
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5522761b866344c70800000000000000
+      internalID: 8954341782400213589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_3
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 69
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dddb7063963579940800000000000000
+      internalID: 5302798797595196893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_4
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 49
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aaf95e8d4f351000800000000000000
+      internalID: 5980576844216993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_5
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 75
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a4a1144cb85ad40800000000000000
+      internalID: 5595031787099802271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_6
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 58
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af52acc9c20affbb0800000000000000
+      internalID: -4900021756086311430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 37
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c636dc86e86ead50800000000000000
+      internalID: 6750448230889567939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_8
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 44
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ae0fc1fe4cb9a60800000000000000
+      internalID: 7681950120672291467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_9
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 62
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cde26e2db7249b140800000000000000
+      internalID: 4735889582743498460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_10
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 54
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2acfcb4b4ac612be0800000000000000
+      internalID: -1503801345902314334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 49
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d53a299ccf89c47d0800000000000000
+      internalID: -2932801045844024483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_12
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 41
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd0be1c7545c064f0800000000000000
+      internalID: -837452628465110819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 30
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6bb9d0a3a5f31b30800000000000000
+      internalID: 4257016155922348908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_14
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 20
+        width: 75
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25d6d8700f8f41720800000000000000
+      internalID: 2816149376815951186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone4_15
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 33
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 037422e03d62c5d10800000000000000
+      internalID: 2115608612874372912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      stone4_0: 6952493293832192862
+      stone4_1: 3817835360797091994
+      stone4_10: -1503801345902314334
+      stone4_11: -2932801045844024483
+      stone4_12: -837452628465110819
+      stone4_13: 4257016155922348908
+      stone4_14: 2816149376815951186
+      stone4_15: 2115608612874372912
+      stone4_2: 8954341782400213589
+      stone4_3: 5302798797595196893
+      stone4_4: 5980576844216993
+      stone4_5: 5595031787099802271
+      stone4_6: -4900021756086311430
+      stone4_7: 6750448230889567939
+      stone4_8: 7681950120672291467
+      stone4_9: 4735889582743498460
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

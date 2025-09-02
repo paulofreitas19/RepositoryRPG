@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: d5a9feb09bd1e3743a2c4f990eb7227f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5493424952881598311
+    second: bomb7_0
+  - first:
+      213: 2192953356871773982
+    second: bomb7_1
+  - first:
+      213: 1039269586869116857
+    second: bomb7_2
+  - first:
+      213: 4127717816870938893
+    second: bomb7_3
+  - first:
+      213: 628799211835081843
+    second: bomb7_4
+  - first:
+      213: 730740239151983492
+    second: bomb7_5
+  - first:
+      213: -7280050821410579984
+    second: bomb7_6
+  - first:
+      213: 7638202736543687443
+    second: bomb7_7
+  - first:
+      213: -3546514488897998086
+    second: bomb7_8
+  - first:
+      213: -3836565448817268883
+    second: bomb7_9
+  - first:
+      213: 3003406551858077421
+    second: bomb7_10
+  - first:
+      213: 4183658212086251518
+    second: bomb7_11
+  - first:
+      213: 3791710072184377830
+    second: bomb7_12
+  - first:
+      213: 586757533808393508
+    second: bomb7_13
+  - first:
+      213: 5121341272409641765
+    second: bomb7_14
+  - first:
+      213: -6868036737598926399
+    second: bomb7_15
+  - first:
+      213: -3242406945391028391
+    second: bomb7_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bomb7_0
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 185
+        width: 14
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 990b93b5c1f63c3b0800000000000000
+      internalID: -5493424952881598311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_1
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 165
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1fa755957fee6e10800000000000000
+      internalID: 2192953356871773982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_2
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 163
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bf5337de2a3c6e00800000000000000
+      internalID: 1039269586869116857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_3
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 153
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d09a4af1c79984930800000000000000
+      internalID: 4127717816870938893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_4
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 164
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 374c9783d81f9b800800000000000000
+      internalID: 628799211835081843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_5
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 111
+        width: 49
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48becb9306c142a00800000000000000
+      internalID: 730740239151983492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_6
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 128
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f9180b695018fa90800000000000000
+      internalID: -7280050821410579984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_7
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 95
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3136a128be8500a60800000000000000
+      internalID: 7638202736543687443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_8
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 94
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af27572dcdf38cec0800000000000000
+      internalID: -3546514488897998086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_9
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 107
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d67a5b12d08c1cac0800000000000000
+      internalID: -3836565448817268883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_10
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 99
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deed49f985e3ea920800000000000000
+      internalID: 3003406551858077421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_11
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 70
+        width: 33
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efffb095af65f0a30800000000000000
+      internalID: 4183658212086251518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 75
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e112d7a83cde9430800000000000000
+      internalID: 3791710072184377830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_13
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 68
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42dfee34ed4942800800000000000000
+      internalID: 586757533808393508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_14
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 49
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5231683d0c8a21740800000000000000
+      internalID: 5121341272409641765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_15
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 55
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c1551fb9f4dfa0a0800000000000000
+      internalID: -6868036737598926399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bomb7_16
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 50
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95755baef08a003d0800000000000000
+      internalID: -3242406945391028391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bomb7_0: -5493424952881598311
+      bomb7_1: 2192953356871773982
+      bomb7_10: 3003406551858077421
+      bomb7_11: 4183658212086251518
+      bomb7_12: 3791710072184377830
+      bomb7_13: 586757533808393508
+      bomb7_14: 5121341272409641765
+      bomb7_15: -6868036737598926399
+      bomb7_16: -3242406945391028391
+      bomb7_2: 1039269586869116857
+      bomb7_3: 4127717816870938893
+      bomb7_4: 628799211835081843
+      bomb7_5: 730740239151983492
+      bomb7_6: -7280050821410579984
+      bomb7_7: 7638202736543687443
+      bomb7_8: -3546514488897998086
+      bomb7_9: -3836565448817268883
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,345 @@
+fileFormatVersion: 2
+guid: a4ddc77985755ce478253fcc1762030d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7031916157811661331
+    second: mage-run-attack_0
+  - first:
+      213: -3290457304412310781
+    second: mage-run-attack_1
+  - first:
+      213: 2396358694092064415
+    second: mage-run-attack_2
+  - first:
+      213: 4288732437349749198
+    second: mage-run-attack_3
+  - first:
+      213: 2854873800356805187
+    second: mage-run-attack_4
+  - first:
+      213: -5751806658522577436
+    second: mage-run-attack_5
+  - first:
+      213: 7467295627699115080
+    second: mage-run-attack_6
+  - first:
+      213: 4603416880026687224
+    second: mage-run-attack_7
+  - first:
+      213: -1706212183742660082
+    second: mage-run-attack_8
+  - first:
+      213: -3505738475055766819
+    second: mage-run-attack_9
+  - first:
+      213: 2121055140185455188
+    second: mage-run-attack_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mage-run-attack_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 86
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 471547362a4df6041917498617973b41
+      internalID: -2084260766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-run-attack_12
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 0
+        width: 86
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ef3271663b3c74196e96df9ec02354
+      internalID: 1070267521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-run-attack_13
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 0
+        width: 87
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26983ba5df02d44c979abe89de3896a
+      internalID: -1318703834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-run-attack_14
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 0
+        width: 101
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae3ead039d03067409c19651c164c38f
+      internalID: -180399937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-run-attack_15
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 103
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 876fe099d11446242aa7a11335fe8a7c
+      internalID: -1681811244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-run-attack_16
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 0
+        width: 103
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea7dd11c43cc4f4ebacdad8b8d5f96c
+      internalID: -471462529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-run-attack_17
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 0
+        width: 92
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f1ae8edfc1884498ab0bd279239591
+      internalID: 928864202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-run-attack_18
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 0
+        width: 87
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1757f88c1ac964ca18a6873e4fc5b5
+      internalID: -1548735834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0bd2ab9c2d079244fa033a0acaa5e983
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mage-run-attack_0: 7031916157811661331
+      mage-run-attack_1: -3290457304412310781
+      mage-run-attack_10: 2121055140185455188
+      mage-run-attack_11: -2084260766
+      mage-run-attack_12: 1070267521
+      mage-run-attack_13: -1318703834
+      mage-run-attack_14: -180399937
+      mage-run-attack_15: -1681811244
+      mage-run-attack_16: -471462529
+      mage-run-attack_17: 928864202
+      mage-run-attack_18: -1548735834
+      mage-run-attack_2: 2396358694092064415
+      mage-run-attack_3: 4288732437349749198
+      mage-run-attack_4: 2854873800356805187
+      mage-run-attack_5: -5751806658522577436
+      mage-run-attack_6: 7467295627699115080
+      mage-run-attack_7: 4603416880026687224
+      mage-run-attack_8: -1706212183742660082
+      mage-run-attack_9: -3505738475055766819
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
