@@ -29,6 +29,11 @@ public class PlayerAnim : MonoBehaviour
         {
             anim.SetInteger("transition", 0);
         }
+
+        if (player.IsJumping)
+        {
+            anim.SetInteger("transition", 6);
+        }
         
     }
 }
