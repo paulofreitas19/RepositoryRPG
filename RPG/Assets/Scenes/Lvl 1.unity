@@ -378,6 +378,8 @@ MonoBehaviour:
   runSpeed: 8
   jumpForce: 18
   radius: 0.5
+  attackAnimDuration: 0.4
+  attackCooldown: 1.2
   pointAttack: {fileID: 1439094794}
   enemyLayer:
     serializedVersion: 2

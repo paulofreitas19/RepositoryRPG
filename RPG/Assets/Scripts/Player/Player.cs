@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float runSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float radius;
+    [SerializeField] private float attackAnimDuration;
+    [SerializeField] private float attackCooldown;
 
     [SerializeField] Transform pointAttack;
     [SerializeField] LayerMask enemyLayer;
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
     private bool isJumping;
     private bool isRunning;
     private bool isAttacking;
+    private bool canAttack;
 
     public bool IsMoving
     {
@@ -51,6 +54,7 @@ public class Player : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         initialSpeed = speed;
+        canAttack = true;
     }
 
     // Update is called once per frame
@@ -58,16 +62,18 @@ public class Player : MonoBehaviour
     {
         OnJump();
         OnRun();
+        OnAttack();
     }
 
     void FixedUpdate()
     {
         OnMove();
-        OnAttack();
     }
 
     void OnMove()
     {
+        if(isAttacking) return;
+
         float movement = Input.GetAxis("Horizontal");
         rig.linearVelocity = new Vector2(movement * speed, rig.linearVelocity.y);
 
@@ -120,7 +126,7 @@ public class Player : MonoBehaviour
 
     void OnAttack()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && canAttack)
         {
             Collider2D hit = Physics2D.OverlapCircle(pointAttack.position, radius, enemyLayer);
 
@@ -131,21 +137,27 @@ public class Player : MonoBehaviour
 
             isAttacking = true;
 
-            StartCoroutine(StopAttack());
-            StartCoroutine(NextAttack());
-            
+            canAttack = false;
+
+            StartCoroutine(AttackRoutine());
+
         }
     }
 
-    IEnumerator StopAttack()
+    IEnumerator AttackRoutine()
     {
-        yield return new WaitForSeconds(0.4f);
-        isAttacking = false;
-    }
+        yield return new WaitForSeconds(attackAnimDuration);
 
-    IEnumerator NextAttack()
-    {
-        yield return new WaitForSeconds(1);
+        isAttacking = false;
+
+        float remaining = attackCooldown - attackAnimDuration;
+
+        if (remaining > 0f)
+        {
+            yield return new WaitForSeconds(remaining);
+        }
+
+        canAttack = true;
     }
 
     private void OnDrawGizmosSelected()
