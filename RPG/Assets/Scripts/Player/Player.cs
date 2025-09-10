@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -11,9 +12,15 @@ public class Player : MonoBehaviour
     private float initialSpeed;
     [SerializeField] private float runSpeed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float radius;
+
+    [SerializeField] Transform pointAttack;
+    [SerializeField] LayerMask enemyLayer;
+
     private bool isMoving;
     private bool isJumping;
     private bool isRunning;
+    private bool isAttacking;
 
     public bool IsMoving
     {
@@ -33,6 +40,12 @@ public class Player : MonoBehaviour
         set { isRunning = value; }
     }
 
+    public bool IsAttacking
+    {
+        get { return isAttacking; }
+        set { isAttacking = value; }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -50,6 +63,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         OnMove();
+        OnAttack();
     }
 
     void OnMove()
@@ -73,7 +87,6 @@ public class Player : MonoBehaviour
             isMoving = true;
             transform.eulerAngles = new Vector2(0, 0);
         }
-
     }
 
     void OnJump()
@@ -88,12 +101,11 @@ public class Player : MonoBehaviour
                 isJumping = true;
             }
         }
-        
     }
 
     void OnRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isJumping)
         {
             speed = runSpeed;
             isRunning = true;
@@ -102,9 +114,36 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             speed = initialSpeed;
-            isRunning = true;
+            isRunning = false;
         }
+    }
 
+    void OnAttack()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Collider2D hit = Physics2D.OverlapCircle(pointAttack.position, radius, enemyLayer);
+
+            if (hit != null)
+            {
+                //Inimigo sofre o ataque
+            }
+
+            isAttacking = true;
+
+            StartCoroutine(StopAttack());
+        }
+    }
+
+    IEnumerator StopAttack()
+    {
+        yield return new WaitForSeconds(0.4f);
+        isAttacking = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(pointAttack.position, radius);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -114,5 +153,6 @@ public class Player : MonoBehaviour
             isJumping = false;
         }
     }
+
 
 }
