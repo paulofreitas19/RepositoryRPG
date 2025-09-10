@@ -132,6 +132,8 @@ public class Player : MonoBehaviour
             isAttacking = true;
 
             StartCoroutine(StopAttack());
+            StartCoroutine(NextAttack());
+            
         }
     }
 
@@ -139,6 +141,11 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
         isAttacking = false;
+    }
+
+    IEnumerator NextAttack()
+    {
+        yield return new WaitForSeconds(1);
     }
 
     private void OnDrawGizmosSelected()
@@ -153,6 +160,5 @@ public class Player : MonoBehaviour
             isJumping = false;
         }
     }
-
 
 }
