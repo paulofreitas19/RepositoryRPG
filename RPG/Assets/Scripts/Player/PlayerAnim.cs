@@ -20,19 +20,24 @@ public class PlayerAnim : MonoBehaviour
 
     void OnMove()
     {
-        if (player.IsMovement)
+        if (player.IsMoving)
         {
             anim.SetInteger("transition", 1);
         }
 
-        if(!player.IsMovement)
+        if(!player.IsMoving)
         {
             anim.SetInteger("transition", 0);
         }
 
         if (player.IsJumping)
         {
-            anim.SetInteger("transition", 6);
+            anim.SetInteger("transition", 7);
+        }
+
+        if (player.IsRunning)
+        {
+            anim.SetInteger("transition", 2);
         }
         
     }

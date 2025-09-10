@@ -8,22 +8,29 @@ public class Player : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private int health;
     [SerializeField] private float speed;
-    [SerializeField] private float initialSpeed;
-    [SerializeField] private float speedRun;
+    private float initialSpeed;
+    [SerializeField] private float runSpeed;
     [SerializeField] private float jumpForce;
-    private bool isMovement;
+    private bool isMoving;
     private bool isJumping;
+    private bool isRunning;
 
-    public bool IsMovement
+    public bool IsMoving
     {
-        get { return isMovement; }
-        set { isMovement = value; }
+        get { return isMoving; }
+        set { isMoving = value; }
     }
 
     public bool IsJumping
     {
         get { return isJumping; }
         set { isJumping = value; }
+    }
+
+    public bool IsRunning
+    {
+        get { return isRunning; }
+        set { isRunning = value; }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -37,6 +44,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         OnJump();
+        OnRun();
     }
 
     void FixedUpdate()
@@ -49,20 +57,20 @@ public class Player : MonoBehaviour
         float movement = Input.GetAxis("Horizontal");
         rig.linearVelocity = new Vector2(movement * speed, rig.linearVelocity.y);
 
-        if (movement == 0)
+        if (movement == 0 && !isJumping)
         {
-            isMovement = false;
+            isMoving = false;
         }
 
         if (movement < 0)
         {
-            isMovement = true;
+            isMoving = true;
             transform.eulerAngles = new Vector2(0, 180);
         }
 
         if(movement > 0)
         {
-            isMovement = true;
+            isMoving = true;
             transform.eulerAngles = new Vector2(0, 0);
         }
 
@@ -74,16 +82,34 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+
                 rig.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
                 isJumping = true;
             }
         }
         
     }
 
+    void OnRun()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speed = runSpeed;
+            isRunning = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = initialSpeed;
+            isRunning = true;
+        }
+
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == 6)
         {
             isJumping = false;
         }
