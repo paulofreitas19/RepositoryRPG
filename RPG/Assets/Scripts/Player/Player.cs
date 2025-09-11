@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     private bool isMoving;
     private bool isJumping;
+    private bool doubleJumping;
     private bool isRunning;
     private bool isAttacking;
     private bool canAttack;
