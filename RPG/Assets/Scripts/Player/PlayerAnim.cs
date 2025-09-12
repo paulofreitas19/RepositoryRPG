@@ -12,6 +12,7 @@ public class PlayerAnim : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -25,9 +26,14 @@ public class PlayerAnim : MonoBehaviour
             anim.SetInteger("transition", 3);
         }
 
+        else if (player.IsClimbing)
+        {
+            anim.SetInteger("transition", 5);
+        }
+
         else if (player.IsJumping)
         {
-            anim.SetInteger("transition", 7);
+            anim.SetInteger("transition", 4);
         }
 
         else if (player.IsRunning)

@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     private float initialSpeed;
     [SerializeField] private float runSpeed;
+    [SerializeField] private float climbSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float radius;
     [SerializeField] private float attackAnimDuration;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] Transform pointAttack;
     [SerializeField] LayerMask enemyLayer;
+    [SerializeField] LayerMask platformLayer;
 
     private bool isMoving;
     private bool isJumping;
@@ -25,6 +27,8 @@ public class Player : MonoBehaviour
     private bool isRunning;
     private bool isAttacking;
     private bool canAttack;
+    private bool canClimb;
+    private bool isClimbing;
 
     public bool IsMoving
     {
@@ -50,6 +54,12 @@ public class Player : MonoBehaviour
         set { isAttacking = value; }
     }
 
+    public bool IsClimbing
+    {
+        get { return isClimbing; }
+        set { isClimbing = value; }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -64,6 +74,8 @@ public class Player : MonoBehaviour
         OnJump();
         OnRun();
         OnAttack();
+        OnClimb();
+        OnDropPlatform();
     }
 
     void FixedUpdate()
@@ -78,7 +90,7 @@ public class Player : MonoBehaviour
         float movement = Input.GetAxis("Horizontal");
         rig.linearVelocity = new Vector2(movement * speed, rig.linearVelocity.y);
 
-        if (movement == 0 && !isJumping)
+        if (movement == 0 && !isJumping && !isClimbing)
         {
             isMoving = false;
         }
@@ -123,6 +135,50 @@ public class Player : MonoBehaviour
             speed = initialSpeed;
             isRunning = false;
         }
+    }
+
+    void OnClimb()
+    {
+        if (canClimb)
+        {
+            float vertical = Input.GetAxis("Vertical");
+
+            if (vertical != 0)
+            {
+                rig.gravityScale = 0f; // Desliga a gravidade
+                rig.linearVelocity = new Vector2(rig.linearVelocity.x, vertical * climbSpeed); // Usa o mesmo speed ou cria um climbSpeed
+                isClimbing = true;
+            }
+
+            else
+            {
+                // Para se o player n�o estiver pressionando nada
+                rig.linearVelocity = new Vector2(rig.linearVelocity.x, 0);
+                //isClimbing = false;
+            }
+        }
+        else
+        {
+            // Restaura gravidade quando sai da escada
+            rig.gravityScale = 3.5f;
+            isClimbing = false;
+            
+        }
+    }
+
+    void OnDropPlatform()
+    {
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            StartCoroutine(DisableCollision());
+        }
+    }
+
+    IEnumerator DisableCollision()
+    {
+        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Platform"), true);
+        yield return new WaitForSeconds(0.5f); // tempo suficiente para cair
+        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Platform"), false);
     }
 
     void OnAttack()
@@ -171,6 +227,22 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             isJumping = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.CompareTag("Climb"))
+        {
+            canClimb = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D coll)
+    {
+        if (coll.CompareTag("Climb"))
+        {
+            canClimb = false;
         }
     }
 
