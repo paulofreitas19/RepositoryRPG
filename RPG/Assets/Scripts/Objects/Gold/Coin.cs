@@ -17,7 +17,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.transform.CompareTag("Player"))
+        if (coll.CompareTag("Player"))
         {
             coll.GetComponent<PlayerItems>().CurrentGold++;
             Destroy(gameObject);

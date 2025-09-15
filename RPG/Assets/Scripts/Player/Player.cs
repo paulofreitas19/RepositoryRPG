@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float radius;
     [SerializeField] private float attackAnimDuration;
     [SerializeField] private float attackCooldown;
+    private float movement;
+    private float vertical;
+
 
     [SerializeField] Transform pointAttack;
     [SerializeField] LayerMask enemyLayer;
@@ -90,7 +93,7 @@ public class Player : MonoBehaviour
     {
         if(isAttacking) return;
 
-        float movement = Input.GetAxis("Horizontal");
+        movement = Input.GetAxis("Horizontal");
         rig.linearVelocity = new Vector2(movement * speed, rig.linearVelocity.y);
 
         if (movement == 0 && !isJumping && !isClimbing)
@@ -127,7 +130,7 @@ public class Player : MonoBehaviour
 
     void OnRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isJumping)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isJumping && movement != 0)
         {
             speed = runSpeed;
             isRunning = true;
@@ -144,7 +147,7 @@ public class Player : MonoBehaviour
     {
         if (canClimb)
         {
-            float vertical = Input.GetAxis("Vertical");
+            vertical = Input.GetAxis("Vertical");
 
             if (vertical != 0)
             {
