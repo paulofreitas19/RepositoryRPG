@@ -399,9 +399,9 @@ GameObject:
   - component: {fileID: 216067118}
   - component: {fileID: 216067123}
   - component: {fileID: 216067124}
-  - component: {fileID: 216067122}
   - component: {fileID: 216067126}
   - component: {fileID: 216067125}
+  - component: {fileID: 216067122}
   m_Layer: 9
   m_Name: Knight
   m_TagString: Player
@@ -1015,7 +1015,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 10.875
+  orthographic size: 17.65
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1040,7 +1040,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 96.92633, y: -3.1094878, z: -9.891935}
+  m_LocalPosition: {x: 96.9204, y: -3.1094878, z: -9.891935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27328,7 +27328,7 @@ Transform:
   m_GameObject: {fileID: 1909761792}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 96.92633, y: -3.1094878, z: -9.891935}
+  m_LocalPosition: {x: 96.9204, y: -3.1094878, z: -9.891935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
