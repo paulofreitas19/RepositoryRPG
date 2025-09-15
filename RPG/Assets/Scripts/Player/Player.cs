@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Player : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform pointAttack;
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] LayerMask platformLayer;
+    [SerializeField] private Collider2D playerCollider;
 
     private bool isMoving;
     private bool isJumping;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
     private bool canAttack;
     private bool canClimb;
     private bool isClimbing;
+    [SerializeField]private bool isDropped;
 
     public bool IsMoving
     {
@@ -146,15 +149,15 @@ public class Player : MonoBehaviour
             if (vertical != 0)
             {
                 rig.gravityScale = 0f; // Desliga a gravidade
-                rig.linearVelocity = new Vector2(rig.linearVelocity.x, vertical * climbSpeed); // Usa o mesmo speed ou cria um climbSpeed
+                rig.linearVelocity = new Vector2(rig.linearVelocity.x, vertical * climbSpeed);
                 isClimbing = true;
             }
 
             else
             {
-                // Para se o player n�o estiver pressionando nada
+                // Para se o player não estiver pressionando nada
                 rig.linearVelocity = new Vector2(rig.linearVelocity.x, 0);
-                //isClimbing = false;
+                isClimbing = false;
             }
         }
         else
@@ -166,20 +169,64 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Método chamado no Update, verifica se o jogador quer descer
     void OnDropPlatform()
     {
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        // Se pressionar S ou seta para baixo, e não estiver pulando
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && !isJumping)
         {
-            StartCoroutine(DisableCollision());
+            // Verifica se existe uma plataforma logo abaixo dos pés
+            var platform = GetPlatformBelow();
+
+            // Se encontrou, inicia a corrotina de atravessar
+            if (platform != null)
+                StartCoroutine(DropThrough(platform));
         }
     }
 
-    IEnumerator DisableCollision()
+    // Detecta a plataforma que está logo abaixo do Player
+    Collider2D GetPlatformBelow()
     {
-        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Platform"), true);
-        yield return new WaitForSeconds(0.5f); // tempo suficiente para cair
-        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Platform"), false);
+        // Pega os limites (bounding box) do collider do Player em coordenadas de mundo
+        var b = playerCollider.bounds;
+
+        // Origem: um ponto logo abaixo do "pé" do Player
+        Vector2 origin = new Vector2(b.center.x, b.min.y - 0.02f);
+
+        // Tamanho: caixa bem baixa, quase do tamanho da largura do Player
+        Vector2 size = new Vector2(b.size.x * 0.9f, 0.06f);
+
+        // Physics2D.OverlapBox retorna o collider da plataforma se houver alguma
+        // - position: onde procurar (origin)
+        // - size: tamanho da caixa
+        // - angle: 0 (sem rotação)
+        // - layerMask: só procura em objetos da Layer Platform
+        return Physics2D.OverlapBox(origin, size, 0f, platformLayer);
     }
+
+    // Corrotina que permite atravessar a plataforma encontrada
+    IEnumerator DropThrough(Collider2D platform)
+    {
+        // Garante que não estamos tentando escalar ao mesmo tempo
+        isClimbing = false;
+
+        // Ativa a gravidade normal (caso estivesse desativada por climb)
+        rig.gravityScale = 3.5f;
+
+        // Ignora a colisão entre o collider do Player e o collider da plataforma
+        Physics2D.IgnoreCollision(playerCollider, platform, true);
+
+        // Dá um pequeno empurrão para baixo, garantindo que entre no Effector
+        rig.linearVelocity = new Vector2(rig.linearVelocity.x, -5f);
+
+        // Espera alguns "steps" de física (FixedUpdate) para o Player atravessar
+        for (int i = 0; i < 16; i++)
+            yield return new WaitForFixedUpdate();
+
+        // Reativa a colisão normalmente
+        Physics2D.IgnoreCollision(playerCollider, platform, false);
+    }
+
 
     void OnAttack()
     {
@@ -220,11 +267,18 @@ public class Player : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(pointAttack.position, radius);
+
+        if (playerCollider == null) return;
+        var b = playerCollider.bounds;
+        Vector2 origin = new Vector2(b.center.x, b.min.y - 0.02f);
+        Vector2 size = new Vector2(b.size.x * 0.9f, 0.06f);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(origin, size);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == 6 || collision.gameObject.layer == 8)
         {
             isJumping = false;
         }
