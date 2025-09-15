@@ -34,7 +34,6 @@ public class Player : MonoBehaviour
     private bool canAttack;
     private bool canClimb;
     private bool isClimbing;
-    [SerializeField]private bool isDropped;
 
     public bool IsMoving
     {
