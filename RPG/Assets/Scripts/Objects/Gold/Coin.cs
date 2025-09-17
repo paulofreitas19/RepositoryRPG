@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    private AudioSource audio;
+    private AudioController soundController;
+    [SerializeField] private AudioClip pickCoinAudio;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        soundController = FindObjectOfType<AudioController>();
     }
 
     // Update is called once per frame
@@ -20,16 +21,9 @@ public class Coin : MonoBehaviour
     {
         if (coll.CompareTag("Player"))
         {
-            audio.Play();
+            //SoundController.instance.PlaySound(GetComponent<AudioSource>());
             coll.GetComponent<PlayerItems>().CurrentGold++;
-            StartCoroutine(DestroyAfterSound());
+            AudioController.instance.DestroyAfterSound();
         }
     }
-
-    IEnumerator DestroyAfterSound()
-    {
-        yield return new WaitForSeconds(audio.clip.length);
-        Destroy(gameObject);
-    }
-
 }

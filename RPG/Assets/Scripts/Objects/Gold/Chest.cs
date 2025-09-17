@@ -1,12 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
     private PlayerItems playerItems;
 
-    private SpriteRenderer spriteRenderer;
 
-    [SerializeField]private Sprite openChest;
+
+    private SpriteRenderer spriteRenderer;
+    [SerializeField] private AudioSource audio;
+    [SerializeField] private Sprite openChest;
+    [SerializeField] private AudioClip pickChestAudio;
+    [SerializeField] private AudioClip openChestAudio;
 
     private bool detecting;
     private bool pressButton;
@@ -31,17 +36,17 @@ public class Chest : MonoBehaviour
         {
             if (!isOpened)
             {
+                //SoundController.instance.PlaySound(audio);
                 spriteRenderer.sprite = openChest;
-
                 isOpened = true;
             }
 
             else
             {
+                //SoundController.instance.PlaySound(audio);
                 playerItems.CurrentGold+=10;
                 Destroy(gameObject);
             }
-            
         }
     }
 
@@ -52,5 +57,13 @@ public class Chest : MonoBehaviour
             detecting = true;
         }
     }
+    private void OnTriggerExit2D(Collider2D coll)
+    {
+        if (coll.CompareTag("Player"))
+        {
+            detecting = false;
+        }
+    }
+
 
 }
