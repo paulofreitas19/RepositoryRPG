@@ -24,7 +24,7 @@ public class AudioController : MonoBehaviour
     /// <summary>
     /// Toca música de fundo global.
     /// </summary>
-    public void PlayBGM(AudioClip audio, bool loop = true, float volume = 1f)
+    public void PlayBGM(AudioClip audio, bool loop = true, float volume = 0.2f)
     {
         if (audioSource == null) return;
 

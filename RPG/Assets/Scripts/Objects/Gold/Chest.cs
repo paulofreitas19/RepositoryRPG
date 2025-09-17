@@ -4,27 +4,23 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     private PlayerItems playerItems;
-
-
-
     private SpriteRenderer spriteRenderer;
-    [SerializeField] private AudioSource audio;
+    private AudioSource audioSource;
+
     [SerializeField] private Sprite openChest;
     [SerializeField] private AudioClip pickChestAudio;
     [SerializeField] private AudioClip openChestAudio;
 
     private bool detecting;
-    private bool pressButton;
     private bool isOpened;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
         playerItems = FindObjectOfType<PlayerItems>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         OnGet();
@@ -36,15 +32,16 @@ public class Chest : MonoBehaviour
         {
             if (!isOpened)
             {
-                //SoundController.instance.PlaySound(audio);
+                // Abrir o baú
+                audioSource.PlayOneShot(openChestAudio);
                 spriteRenderer.sprite = openChest;
                 isOpened = true;
             }
-
             else
             {
-                //SoundController.instance.PlaySound(audio);
-                playerItems.CurrentGold+=10;
+                // Coletar
+                playerItems.CurrentGold += 10;
+                AudioController.instance.PlayAndDestroy(pickChestAudio, transform.position, null);
                 Destroy(gameObject);
             }
         }
@@ -53,17 +50,12 @@ public class Chest : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.CompareTag("Player"))
-        {
             detecting = true;
-        }
     }
+
     private void OnTriggerExit2D(Collider2D coll)
     {
         if (coll.CompareTag("Player"))
-        {
             detecting = false;
-        }
     }
-
-
 }

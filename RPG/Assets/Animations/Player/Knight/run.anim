@@ -90,4 +90,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: PlaySFX
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 1eb1b62e68023e14c946d1a13246f7aa, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
