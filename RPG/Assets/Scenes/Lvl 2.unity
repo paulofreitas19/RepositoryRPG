@@ -29722,6 +29722,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioControl
       objectReference: {fileID: 0}
+    - target: {fileID: 6767799923843981008, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: bgmMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: afac7d4ea975bc4439e13e6bd4d956e6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

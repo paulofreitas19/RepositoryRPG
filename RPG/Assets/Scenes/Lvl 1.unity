@@ -396,7 +396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 214531563}
   m_Layer: 0
-  m_Name: ------- Controllers ---------
+  m_Name: ----------- Sound ------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -895,6 +895,67 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!1001 &571022106
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1795494687100626258, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 99.81697
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795494687100626258, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.99184144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795494687100626258, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795494687100626258, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795494687100626258, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795494687100626258, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795494687100626258, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795494687100626258, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795494687100626258, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795494687100626258, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451414049125034874, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: m_Name
+      value: AudioControl
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767799923843981008, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
+      propertyPath: bgmMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: b1eac5d4185349f4e9bc6c788f85fdc6, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9111959b6c66e31479432a6e95e083bc, type: 3}
 --- !u!1001 &578072581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23995,7 +24056,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 88819adc29a1b1641983105319e39cd2, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -29712,10 +29773,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1616577321}
     m_Modifications:
-    - target: {fileID: 1083674527871851701, guid: f863918d50408d241a6c4ccdf864ff59, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3981290927166615878, guid: f863918d50408d241a6c4ccdf864ff59, type: 3}
       propertyPath: m_Name
       value: Coin
@@ -30002,6 +30059,7 @@ SceneRoots:
   - {fileID: 6545255094885534624}
   - {fileID: 2017901048}
   - {fileID: 757458802776136927}
-  - {fileID: 708896728}
   - {fileID: 214531563}
   - {fileID: 1849344962}
+  - {fileID: 571022106}
+  - {fileID: 708896728}

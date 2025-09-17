@@ -4,44 +4,60 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     public static AudioController instance;
+
+    [Header("Global Audio Source (BGM)")]
     [SerializeField] private AudioSource audioSource;
-    
+
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance);
+            DontDestroyOnLoad(gameObject);
         }
-
         else
         {
             Destroy(gameObject);
         }
-        
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    /// <summary>
+    /// Toca música de fundo global.
+    /// </summary>
+    public void PlayBGM(AudioClip audio, bool loop = true, float volume = 1f)
     {
-        
-    }
+        if (audioSource == null) return;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void PlayBGM(AudioClip audio)
-    {
         audioSource.clip = audio;
+        audioSource.loop = loop;
+        audioSource.volume = volume;
         audioSource.Play();
     }
 
-    public IEnumerator DestroyAfterSound()
+    /// <summary>
+    /// Toca um som e destrói o objeto alvo quando o som acabar.
+    /// </summary>
+    public void PlayAndDestroy(AudioClip clip, Vector3 position, GameObject target)
     {
-        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
-        Destroy(gameObject);
+        if (clip == null) return;
+        StartCoroutine(PlayAndDestroyRoutine(clip, position, target));
+    }
+
+    private IEnumerator PlayAndDestroyRoutine(AudioClip clip, Vector3 position, GameObject target)
+    {
+        // Cria objeto temporário só para o som
+        GameObject temp = new GameObject("TempAudio");
+        AudioSource source = temp.AddComponent<AudioSource>();
+        source.clip = clip;
+        source.Play();
+        temp.transform.position = position;
+
+        // Espera terminar o áudio
+        yield return new WaitForSeconds(clip.length);
+
+        if (target != null)
+            Destroy(target);
+
+        Destroy(temp);
     }
 }
