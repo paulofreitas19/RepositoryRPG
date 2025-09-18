@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] private int health;
+    [SerializeField] private int lifePoints;
     [SerializeField] private float speed;
     private float initialSpeed;
     [SerializeField] private float runSpeed;
@@ -34,6 +35,20 @@ public class Player : MonoBehaviour
     private bool canAttack;
     private bool canClimb;
     private bool isClimbing;
+    private bool isHit;
+    private bool isDeath;
+
+    public int LifePoints
+    {
+        get { return lifePoints; }
+        set { lifePoints = value; }
+    }
+
+    public int Health
+    {
+        get { return health; }
+        set { health = value; }
+    }
 
     public bool IsMoving
     {
@@ -63,6 +78,18 @@ public class Player : MonoBehaviour
     {
         get { return isClimbing; }
         set { isClimbing = value; }
+    }
+
+    public bool IsHit
+    {
+        get { return isHit; }
+        set { isHit = value; }
+    }
+
+    public bool IsDeath
+    {
+        get { return isDeath; }
+        set { isDeath = value; }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -247,6 +274,23 @@ public class Player : MonoBehaviour
 
             StartCoroutine(AttackRoutine());
 
+        }
+    }
+
+    void OnHit()
+    {
+        isHit = true;
+        health--;
+
+        if(health <= 0)
+        {
+            isDeath = true;
+            lifePoints--;
+
+            if(lifePoints <= 0)
+            {
+                //GAME OVER
+            }
         }
     }
 

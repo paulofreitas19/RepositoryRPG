@@ -21,6 +21,11 @@ public class PlayerAnim : MonoBehaviour
 
     void OnMove()
     {
+        if (player.IsHit)
+        {
+            anim.SetTrigger("isHit");
+        }
+
         if (player.IsAttacking)
         {
             anim.SetInteger("transition", 3);

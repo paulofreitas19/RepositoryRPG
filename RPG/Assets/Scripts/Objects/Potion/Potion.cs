@@ -1,9 +1,9 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class CheckPos : MonoBehaviour
+public class Potion : MonoBehaviour
 {
     private Player player;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,8 +20,7 @@ public class CheckPos : MonoBehaviour
     {
         if (coll.CompareTag("Player"))
         {
-            PlayerPos.instance.CheckPoint();
-            player.Health--;
+            player.IsInjured = false;
         }
     }
 }
