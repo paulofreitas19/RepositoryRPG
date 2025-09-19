@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0283833ad7e7247b81ccb68a3d3f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmMusic: {fileID: 0}
+  bgmMusic: {fileID: 8300000, guid: 88819adc29a1b1641983105319e39cd2, type: 3}
