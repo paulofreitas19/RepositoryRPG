@@ -8,7 +8,7 @@ public class Coin : MonoBehaviour
     {
         if (coll.CompareTag("Player"))
         {
-            coll.GetComponent<PlayerItems>().CurrentGold++;
+            coll.GetComponent<Player>().CurrentGold++;
 
             // chama o controlador para tocar som e destruir a moeda
             AudioController.instance.PlayAndDestroy(coinSound, transform.position, gameObject);

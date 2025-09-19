@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    private PlayerItems playerItems;
+    private Player player;
     private SpriteRenderer spriteRenderer;
     private AudioSource audioSource;
 
@@ -18,7 +18,7 @@ public class Chest : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
-        playerItems = FindObjectOfType<PlayerItems>();
+        player = FindObjectOfType<Player>();
     }
 
     void Update()
@@ -40,7 +40,7 @@ public class Chest : MonoBehaviour
             else
             {
                 // Coletar
-                playerItems.CurrentGold += 10;
+                player.CurrentGold += 10;
                 AudioController.instance.PlayAndDestroy(pickChestAudio, transform.position, null);
                 Destroy(gameObject);
             }

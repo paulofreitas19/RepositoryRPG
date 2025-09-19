@@ -21,12 +21,17 @@ public class PlayerAnim : MonoBehaviour
 
     void OnMove()
     {
-        if (player.IsHit)
+        if (player.IsDeath)
+        {
+            anim.SetTrigger("isDeath");
+        }
+
+        else if (player.IsHit)
         {
             anim.SetTrigger("isHit");
         }
 
-        if (player.IsAttacking)
+        else if (player.IsAttacking)
         {
             anim.SetInteger("transition", 3);
         }

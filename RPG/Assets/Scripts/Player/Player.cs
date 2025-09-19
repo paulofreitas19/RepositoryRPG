@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
 
     [Header("Stats")]
-    [SerializeField] private int health;
+    [SerializeField] private int currentGold = 0;
+    [SerializeField] private float health;
+    [SerializeField] private float maxHealth;
     [SerializeField] private int lifePoints;
     [SerializeField] private float speed;
     private float initialSpeed;
@@ -38,16 +40,28 @@ public class Player : MonoBehaviour
     private bool isHit;
     private bool isDeath;
 
+    public int CurrentGold
+    {
+        get { return currentGold; }
+        set { currentGold = value; }
+    }
+
     public int LifePoints
     {
         get { return lifePoints; }
         set { lifePoints = value; }
     }
 
-    public int Health
+    public float Health
     {
         get { return health; }
         set { health = value; }
+    }
+
+    public float MaxHealth
+    {
+        get { return maxHealth; }
+        set { maxHealth = value; }
     }
 
     public bool IsMoving
@@ -98,6 +112,7 @@ public class Player : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         initialSpeed = speed;
         canAttack = true;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -277,23 +292,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnHit()
-    {
-        isHit = true;
-        health--;
-
-        if(health <= 0)
-        {
-            isDeath = true;
-            lifePoints--;
-
-            if(lifePoints <= 0)
-            {
-                //GAME OVER
-            }
-        }
-    }
-
     IEnumerator AttackRoutine()
     {
         yield return new WaitForSeconds(attackAnimDuration);
@@ -308,6 +306,23 @@ public class Player : MonoBehaviour
         }
 
         canAttack = true;
+    }
+
+    void OnHit()
+    {
+        isHit = true;
+        health -= 0.2f;
+
+        if(health <= 0)
+        {
+            isDeath = true;
+            lifePoints--;
+
+            if(lifePoints <= 0)
+            {
+                //GAME OVER
+            }
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -345,5 +360,4 @@ public class Player : MonoBehaviour
             canClimb = false;
         }
     }
-
 }
