@@ -269,14 +269,14 @@ RectTransform:
   m_GameObject: {fileID: 102500963}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.20838644, y: 0.14503458, z: 0.4692727}
+  m_LocalScale: {x: 0.16296999, y: 0.11342525, z: 0.3669978}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1722771014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.6, y: -0.7}
+  m_AnchoredPosition: {x: -32.8925, y: -0.69996643}
   m_SizeDelta: {x: 181.25, y: 181.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &102500965
@@ -900,7 +900,7 @@ Transform:
   m_GameObject: {fileID: 354252359}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.1, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1667,7 +1667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42.896, y: 0.000076293945}
+  m_AnchoredPosition: {x: 25.603516, y: 0.00010681152}
   m_SizeDelta: {x: 424.2, y: 198.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &720347379
@@ -1692,11 +1692,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
+    m_FontSize: 120
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 100
+    m_MaxSize: 120
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -24423,8 +24423,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -266.2336, y: 183.2}
-  m_SizeDelta: {x: 160.0474, y: 36}
+  m_AnchoredPosition: {x: -259.59982, y: 183.2}
+  m_SizeDelta: {x: 125.4627, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1722771015
 MonoBehaviour:
