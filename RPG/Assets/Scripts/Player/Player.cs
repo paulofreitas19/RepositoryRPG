@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [Header("Components")]
     private Rigidbody2D rig;
+    [SerializeField] private AudioClip landingSound; 
 
     [Header("Stats")]
     [SerializeField] private int currentGold = 0;
@@ -342,6 +343,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == 6 || collision.gameObject.layer == 8)
         {
             isJumping = false;
+            AudioController.instance.PlayAndDestroy(landingSound, transform.position, null);
         }
     }
 
