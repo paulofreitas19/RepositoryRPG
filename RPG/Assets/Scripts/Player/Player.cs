@@ -14,8 +14,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxHealth;
     [SerializeField] private int lifePoints;
     [SerializeField] private float speed;
-    private float initialSpeed;
-    [SerializeField] private float runSpeed;
     [SerializeField] private float climbSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float radius;
@@ -30,7 +28,6 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask platformLayer;
     [SerializeField] private Collider2D playerCollider;
 
-    private bool isMoving;
     private bool isJumping;
     private bool doubleJumping;
     private bool isRunning;
@@ -63,12 +60,6 @@ public class Player : MonoBehaviour
     {
         get { return maxHealth; }
         set { maxHealth = value; }
-    }
-
-    public bool IsMoving
-    {
-        get { return isMoving; }
-        set { isMoving = value; }
     }
 
     public bool IsJumping
@@ -107,20 +98,16 @@ public class Player : MonoBehaviour
         set { isDeath = value; }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        initialSpeed = speed;
         canAttack = true;
         health = maxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
         OnJump();
-        OnRun();
         OnAttack();
         OnClimb();
         OnDropPlatform();
@@ -140,18 +127,19 @@ public class Player : MonoBehaviour
 
         if (movement == 0 && !isJumping && !isClimbing)
         {
-            isMoving = false;
+            //isMoving = false;
+            isRunning = false;
         }
 
         if (movement < 0)
         {
-            isMoving = true;
+            isRunning = true;
             transform.eulerAngles = new Vector2(0, 180);
         }
 
         if(movement > 0)
         {
-            isMoving = true;
+            isRunning = true;
             transform.eulerAngles = new Vector2(0, 0);
         }
     }
@@ -167,21 +155,6 @@ public class Player : MonoBehaviour
 
                 isJumping = true;
             }
-        }
-    }
-
-    void OnRun()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isJumping && movement != 0)
-        {
-            speed = runSpeed;
-            isRunning = true;
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            speed = initialSpeed;
-            isRunning = false;
         }
     }
 
