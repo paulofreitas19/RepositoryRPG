@@ -29,6 +29,7 @@ public class PlayerAnim : MonoBehaviour
         else if (player.IsHit)
         {
             anim.SetTrigger("isHit");
+            player.IsHit = false;
         }
 
         else if (player.IsAttacking)

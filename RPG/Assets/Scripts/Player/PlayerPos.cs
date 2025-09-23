@@ -12,6 +12,7 @@ public class PlayerPos : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            CheckPoint();
         }
 
         else

@@ -20,8 +20,9 @@ public class CheckPos : MonoBehaviour
     {
         if (coll.CompareTag("Player"))
         {
+
             PlayerPos.instance.CheckPoint();
-            player.Health--;
+            player.Health -= 0.2f;
         }
     }
 }

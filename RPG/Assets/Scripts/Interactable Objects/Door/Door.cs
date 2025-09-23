@@ -18,7 +18,7 @@ public class Door : MonoBehaviour
 
     void OnOpen()
     {
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.E) && isOpened)
         {
             SceneManager.LoadScene(1);
         }

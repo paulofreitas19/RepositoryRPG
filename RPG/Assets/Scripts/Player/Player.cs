@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Player : MonoBehaviour
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
     private bool isClimbing;
     private bool isHit;
     private bool isDeath;
+    private bool canTakeHit = true;
 
     public int CurrentGold
     {
@@ -191,7 +193,7 @@ public class Player : MonoBehaviour
     void OnDropPlatform()
     {
         // Se pressionar S ou seta para baixo, e não estiver pulando
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && !isJumping)
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && !isJumping && canClimb) 
         {
             // Verifica se existe uma plataforma logo abaixo dos pés
             var platform = GetPlatformBelow();
@@ -282,21 +284,34 @@ public class Player : MonoBehaviour
         canAttack = true;
     }
 
-    void OnHit()
+    public void OnHit()
     {
+        if (!canTakeHit) return;
+
         isHit = true;
+
         health -= 0.2f;
 
-        if(health <= 0)
+        if (health <= 0)
         {
             isDeath = true;
             lifePoints--;
 
-            if(lifePoints <= 0)
+            if (lifePoints <= 0)
             {
                 //GAME OVER
             }
         }
+
+        StartCoroutine(RecoveryTime());
+    }
+
+    private IEnumerator RecoveryTime()
+    {
+        canTakeHit = false;
+        yield return new WaitForSeconds(3f);
+        canTakeHit = true;
+        isHit = false;
     }
 
     private void OnDrawGizmosSelected()
