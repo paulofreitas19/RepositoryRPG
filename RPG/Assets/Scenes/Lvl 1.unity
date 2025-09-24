@@ -719,7 +719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 214531563}
   m_Layer: 0
-  m_Name: ----------- Sound ------------
+  m_Name: === Sound ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1113,7 +1113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 334080908}
   m_Layer: 0
-  m_Name: ------ Invisible Colliders ----------
+  m_Name: === Invisible Colliders ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1270,6 +1270,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f863918d50408d241a6c4ccdf864ff59, type: 3}
+--- !u!1 &446021613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 446021614}
+  m_Layer: 0
+  m_Name: === Manager ===
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446021614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446021613}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.355331, y: -17.437866, z: -0.826144}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &480812331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,7 +1595,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 13.85
+  orthographic size: 12.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1589,7 +1620,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.819693, y: -3.5894873, z: -9.891935}
+  m_LocalPosition: {x: -9.813499, y: -3.5894873, z: -9.891935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2049,7 +2080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 708896728}
   m_Layer: 0
-  m_Name: ----------- Enemies ---------
+  m_Name: === Enemies ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3609,7 +3640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1209235104}
   m_Layer: 0
-  m_Name: ------------- UI --------------
+  m_Name: === UI ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4133,7 +4164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1413292436}
   m_Layer: 0
-  m_Name: ---------- Obstacles ---------
+  m_Name: === Obstacles ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36928,7 +36959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1821497428}
   m_Layer: 0
-  m_Name: ---------- Camera -----------
+  m_Name: === Camera ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36959,7 +36990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1823388214}
   m_Layer: 0
-  m_Name: ------------ Terrain ----------
+  m_Name: === Terrain ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38607,7 +38638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1872017975}
   m_Layer: 0
-  m_Name: ----- Interactable Objects ----
+  m_Name: === Interactable Objects ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38892,7 +38923,7 @@ Transform:
   m_GameObject: {fileID: 1909761792}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.819693, y: -3.5894873, z: -9.891935}
+  m_LocalPosition: {x: -9.813499, y: -3.5894873, z: -9.891935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39021,7 +39052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2017901048}
   m_Layer: 0
-  m_Name: ------------ Player ----------
+  m_Name: === Player ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51975,6 +52006,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3573988576951773357, guid: a44a2f5f92fb478449196eef4722e99f, type: 3}
+      propertyPath: lifePoints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573988576951773357, guid: a44a2f5f92fb478449196eef4722e99f, type: 3}
       propertyPath: landingSound
       value: 
       objectReference: {fileID: 8300000, guid: 247eec10d4264b94a981e4414f78e017, type: 3}
@@ -52339,3 +52374,4 @@ SceneRoots:
   - {fileID: 708896728}
   - {fileID: 1413292436}
   - {fileID: 1316909407}
+  - {fileID: 446021614}

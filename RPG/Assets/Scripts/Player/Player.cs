@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxHealth;
     [SerializeField] private int lifePoints;
     [SerializeField] private float speed;
+    [SerializeField] private float initialSpeed;
     [SerializeField] private float climbSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float radius;
@@ -105,6 +106,7 @@ public class Player : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         canAttack = true;
         health = maxHealth;
+        initialSpeed = speed;
     }
 
     void Update()
@@ -288,8 +290,8 @@ public class Player : MonoBehaviour
     {
         if (!canTakeHit) return;
 
+        //speed = 0;
         isHit = true;
-
         health -= 0.2f;
 
         if (health <= 0)
@@ -312,6 +314,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(3f);
         canTakeHit = true;
         isHit = false;
+        speed = initialSpeed;
     }
 
     private void OnDrawGizmosSelected()

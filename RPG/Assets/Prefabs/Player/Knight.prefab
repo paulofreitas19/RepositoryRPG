@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 3313697547587100151}
   - component: {fileID: 6493683052697355900}
   - component: {fileID: 4753411197514939496}
-  - component: {fileID: 1245084074235803172}
   - component: {fileID: 3573988576951773357}
+  - component: {fileID: 1245084074235803172}
   - component: {fileID: 6319174309091234211}
   m_Layer: 9
   m_Name: Knight
@@ -318,18 +318,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1245084074235803172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3410765479538970574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a28a532d2ec6b04187dad0cf311ee4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3573988576951773357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,12 +330,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68212534a274cd64c81a7f041a9f64f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  landingSound: {fileID: 0}
   currentGold: 0
   health: 0
   maxHealth: 1
   lifePoints: 0
   speed: 4
-  runSpeed: 8
   climbSpeed: 4
   jumpForce: 18
   radius: 0.5
@@ -361,6 +349,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerCollider: {fileID: 6493683052697355900}
+--- !u!114 &1245084074235803172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410765479538970574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a28a532d2ec6b04187dad0cf311ee4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6319174309091234211
 MonoBehaviour:
   m_ObjectHideFlags: 0
