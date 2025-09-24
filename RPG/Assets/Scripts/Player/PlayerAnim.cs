@@ -4,57 +4,55 @@ public class PlayerAnim : MonoBehaviour
 {
     private Player player;
     private Animator anim;
+    private SpriteRenderer spriteRenderer;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private float blinkTimer;
+    [SerializeField] private float blinkInterval = 0.2f;
+
     void Start()
     {
         player = GetComponent<Player>();
         anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-
-    // Update is called once per frame
     void Update()
     {
-        OnMove();
+        HandleAnimations();
+        HandleInvulnerabilityBlink();
     }
 
-    void OnMove()
+    void HandleAnimations()
     {
         if (player.IsDeath)
-        {
             anim.SetTrigger("isDeath");
-        }
-
         else if (player.IsHit)
-        {
             anim.SetTrigger("isHit");
-            //player.IsHit = false;
-        }
-
         else if (player.IsAttacking)
-        {
             anim.SetInteger("transition", 2);
-        }
-
         else if (player.IsClimbing)
-        {
             anim.SetInteger("transition", 3);
-        }
-
         else if (player.IsJumping)
-        {
             anim.SetInteger("transition", 4);
-        }
-
         else if (player.IsRunning)
-        {
             anim.SetInteger("transition", 1);
+        else
+            anim.SetInteger("transition", 0);
+    }
+
+    void HandleInvulnerabilityBlink()
+    {
+        if (!player.IsInvulnerable)
+        {
+            spriteRenderer.enabled = true;
+            return;
         }
 
-        else
+        blinkTimer += Time.deltaTime;
+        if (blinkTimer >= blinkInterval)
         {
-            anim.SetInteger("transition", 0);
-        } 
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+            blinkTimer = 0;
+        }
     }
 }

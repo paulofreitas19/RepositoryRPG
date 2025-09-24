@@ -1,110 +1,66 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Player : MonoBehaviour
 {
     [Header("Components")]
     private Rigidbody2D rig;
-    [SerializeField] private AudioClip landingSound; 
+    [SerializeField] private Collider2D playerCollider;
+    [SerializeField] private AudioClip landingSound;
 
     [Header("Stats")]
     [SerializeField] private int currentGold = 0;
-    [SerializeField] private float health;
-    [SerializeField] private float maxHealth;
-    [SerializeField] private int lifePoints;
-    [SerializeField] private float speed;
-    [SerializeField] private float initialSpeed;
-    [SerializeField] private float climbSpeed;
-    [SerializeField] private float jumpForce;
-    [SerializeField] private float radius;
-    [SerializeField] private float attackAnimDuration;
-    [SerializeField] private float attackCooldown;
+    [SerializeField] private float maxHealth = 1f;
+    [SerializeField] private int lifePoints = 3;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float runSpeed = 8f;
+    [SerializeField] private float climbSpeed = 3f;
+    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float radius = 0.5f;
+    [SerializeField] private float attackAnimDuration = 0.5f;
+    [SerializeField] private float attackCooldown = 1f;
+
+    [Header("Combat")]
+    [SerializeField] private Transform pointAttack;
+    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private LayerMask platformLayer;
+
+    // Estado interno
+    private float health;
     private float movement;
     private float vertical;
-
-
-    [SerializeField] Transform pointAttack;
-    [SerializeField] LayerMask enemyLayer;
-    [SerializeField] LayerMask platformLayer;
-    [SerializeField] private Collider2D playerCollider;
+    private float initialSpeed;
 
     private bool isJumping;
-    private bool doubleJumping;
     private bool isRunning;
     private bool isAttacking;
-    private bool canAttack;
+    private bool canAttack = true;
     private bool canClimb;
     private bool isClimbing;
     private bool isHit;
     private bool isDeath;
     private bool canTakeHit = true;
+    private bool isInvulnerable;
+    private bool isStunned;
 
-    public int CurrentGold
-    {
-        get { return currentGold; }
-        set { currentGold = value; }
-    }
+    #region Propriedades públicas (acessadas pelo PlayerAnim)
+    public int CurrentGold { get => currentGold; set => currentGold = value; }
+    public int LifePoints { get => lifePoints; set => lifePoints = value; }
+    public float Health { get => health; set => health = value; }
+    public float MaxHealth { get => maxHealth; set => maxHealth = value; }
 
-    public int LifePoints
-    {
-        get { return lifePoints; }
-        set { lifePoints = value; }
-    }
-
-    public float Health
-    {
-        get { return health; }
-        set { health = value; }
-    }
-
-    public float MaxHealth
-    {
-        get { return maxHealth; }
-        set { maxHealth = value; }
-    }
-
-    public bool IsJumping
-    {
-        get { return isJumping; }
-        set { isJumping = value; }
-    }
-
-    public bool IsRunning
-    {
-        get { return isRunning; }
-        set { isRunning = value; }
-    }
-
-    public bool IsAttacking
-    {
-        get { return isAttacking; }
-        set { isAttacking = value; }
-    }
-
-    public bool IsClimbing
-    {
-        get { return isClimbing; }
-        set { isClimbing = value; }
-    }
-
-    public bool IsHit
-    {
-        get { return isHit; }
-        set { isHit = value; }
-    }
-
-    public bool IsDeath
-    {
-        get { return isDeath; }
-        set { isDeath = value; }
-    }
+    public bool IsJumping { get => isJumping; }
+    public bool IsRunning { get => isRunning; }
+    public bool IsAttacking { get => isAttacking; }
+    public bool IsClimbing { get => isClimbing; }
+    public bool IsHit { get => isHit; }
+    public bool IsDeath { get => isDeath; }
+    public bool IsInvulnerable { get => isInvulnerable; }
+    #endregion
 
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        canAttack = true;
         health = maxHealth;
         initialSpeed = speed;
     }
@@ -122,43 +78,37 @@ public class Player : MonoBehaviour
         OnMove();
     }
 
+    #region Movimentação
     void OnMove()
     {
-        if(isAttacking) return;
+        if (isStunned)
+        {
+            rig.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        if (isAttacking) return;
 
         movement = Input.GetAxis("Horizontal");
         rig.linearVelocity = new Vector2(movement * speed, rig.linearVelocity.y);
 
         if (movement == 0 && !isJumping && !isClimbing)
         {
-            //isMoving = false;
             isRunning = false;
         }
-
-        if (movement < 0)
+        else if (movement != 0)
         {
             isRunning = true;
-            transform.eulerAngles = new Vector2(0, 180);
-        }
-
-        if(movement > 0)
-        {
-            isRunning = true;
-            transform.eulerAngles = new Vector2(0, 0);
+            transform.eulerAngles = (movement < 0) ? new Vector2(0, 180) : new Vector2(0, 0);
         }
     }
 
     void OnJump()
     {
-        if (!isJumping)
+        if (!isJumping && Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-
-                rig.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-
-                isJumping = true;
-            }
+            rig.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            isJumping = true;
         }
     }
 
@@ -167,169 +117,133 @@ public class Player : MonoBehaviour
         if (canClimb)
         {
             vertical = Input.GetAxis("Vertical");
-
             if (vertical != 0)
             {
-                rig.gravityScale = 0f; // Desliga a gravidade
+                rig.gravityScale = 0f;
                 rig.linearVelocity = new Vector2(rig.linearVelocity.x, vertical * climbSpeed);
                 isClimbing = true;
             }
-
             else
             {
-                // Para se o player não estiver pressionando nada
                 rig.linearVelocity = new Vector2(rig.linearVelocity.x, 0);
                 isClimbing = false;
             }
         }
         else
         {
-            // Restaura gravidade quando sai da escada
             rig.gravityScale = 3.5f;
             isClimbing = false;
-            
         }
     }
 
-    // Método chamado no Update, verifica se o jogador quer descer
     void OnDropPlatform()
     {
-        // Se pressionar S ou seta para baixo, e não estiver pulando
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && !isJumping && canClimb) 
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && !isJumping && canClimb)
         {
-            // Verifica se existe uma plataforma logo abaixo dos pés
             var platform = GetPlatformBelow();
-
-            // Se encontrou, inicia a corrotina de atravessar
             if (platform != null)
                 StartCoroutine(DropThrough(platform));
         }
     }
+    #endregion
 
-    // Detecta a plataforma que está logo abaixo do Player
-    Collider2D GetPlatformBelow()
-    {
-        // Pega os limites (bounding box) do collider do Player em coordenadas de mundo
-        var b = playerCollider.bounds;
-
-        // Origem: um ponto logo abaixo do "pé" do Player
-        Vector2 origin = new Vector2(b.center.x, b.min.y - 0.02f);
-
-        // Tamanho: caixa bem baixa, quase do tamanho da largura do Player
-        Vector2 size = new Vector2(b.size.x * 0.9f, 0.06f);
-
-        // Physics2D.OverlapBox retorna o collider da plataforma se houver alguma
-        // - position: onde procurar (origin)
-        // - size: tamanho da caixa
-        // - angle: 0 (sem rotação)
-        // - layerMask: só procura em objetos da Layer Platform
-        return Physics2D.OverlapBox(origin, size, 0f, platformLayer);
-    }
-
-    // Corrotina que permite atravessar a plataforma encontrada
-    IEnumerator DropThrough(Collider2D platform)
-    {
-        // Garante que não estamos tentando escalar ao mesmo tempo
-        isClimbing = false;
-
-        // Ativa a gravidade normal (caso estivesse desativada por climb)
-        rig.gravityScale = 3.5f;
-
-        // Ignora a colisão entre o collider do Player e o collider da plataforma
-        Physics2D.IgnoreCollision(playerCollider, platform, true);
-
-        // Dá um pequeno empurrão para baixo, garantindo que entre no Effector
-        rig.linearVelocity = new Vector2(rig.linearVelocity.x, -5f);
-
-        // Espera alguns "steps" de física (FixedUpdate) para o Player atravessar
-        for (int i = 0; i < 16; i++)
-            yield return new WaitForFixedUpdate();
-
-        // Reativa a colisão normalmente
-        Physics2D.IgnoreCollision(playerCollider, platform, false);
-    }
-
-
+    #region Combate
     void OnAttack()
     {
-        if(Input.GetMouseButtonDown(0) && canAttack)
+        if (Input.GetMouseButtonDown(0) && canAttack)
         {
             Collider2D hit = Physics2D.OverlapCircle(pointAttack.position, radius, enemyLayer);
-
             if (hit != null)
             {
-                //Inimigo sofre o ataque
+                // aplicar dano no inimigo
             }
 
             isAttacking = true;
-
             canAttack = false;
 
             StartCoroutine(AttackRoutine());
-
         }
     }
 
     IEnumerator AttackRoutine()
     {
         yield return new WaitForSeconds(attackAnimDuration);
-
         isAttacking = false;
 
         float remaining = attackCooldown - attackAnimDuration;
-
         if (remaining > 0f)
-        {
             yield return new WaitForSeconds(remaining);
-        }
 
         canAttack = true;
     }
+    #endregion
 
-    public void OnHit()
+    #region Dano e Vida
+    public void OnHit(float damage = 0.2f)
     {
         if (!canTakeHit) return;
 
-        //speed = 0;
         isHit = true;
-        health -= 0.2f;
+        health -= damage;
 
         if (health <= 0)
         {
             isDeath = true;
             lifePoints--;
-
             if (lifePoints <= 0)
             {
-                //GAME OVER
+                // GAME OVER
             }
         }
 
+        StartCoroutine(StunTime());
+
         StartCoroutine(RecoveryTime());
+    }
+
+    private IEnumerator StunTime()
+    {
+        isInvulnerable = true;
+        isStunned = true;
+        yield return new WaitForSeconds(1.5f);
+        isStunned = false;
+        isHit = false;   
     }
 
     private IEnumerator RecoveryTime()
     {
         canTakeHit = false;
-        yield return new WaitForSeconds(3f);
+        isInvulnerable = true;
+        yield return new WaitForSeconds(5f);
         canTakeHit = true;
-        isHit = false;
-        speed = initialSpeed;
+        isInvulnerable = false;
     }
+    #endregion
 
-    private void OnDrawGizmosSelected()
+    #region Plataformas
+    Collider2D GetPlatformBelow()
     {
-        Gizmos.DrawWireSphere(pointAttack.position, radius);
-
-        if (playerCollider == null) return;
         var b = playerCollider.bounds;
         Vector2 origin = new Vector2(b.center.x, b.min.y - 0.02f);
         Vector2 size = new Vector2(b.size.x * 0.9f, 0.06f);
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(origin, size);
+        return Physics2D.OverlapBox(origin, size, 0f, platformLayer);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    IEnumerator DropThrough(Collider2D platform)
+    {
+        isClimbing = false;
+        rig.gravityScale = 3.5f;
+        Physics2D.IgnoreCollision(playerCollider, platform, true);
+        rig.linearVelocity = new Vector2(rig.linearVelocity.x, -5f);
+
+        for (int i = 0; i < 16; i++)
+            yield return new WaitForFixedUpdate();
+
+        Physics2D.IgnoreCollision(playerCollider, platform, false);
+    }
+    #endregion
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 6 || collision.gameObject.layer == 8)
         {
@@ -338,19 +252,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.CompareTag("Climb"))
-        {
-            canClimb = true;
-        }
+        if (coll.CompareTag("Climb")) canClimb = true;
     }
 
-    private void OnTriggerExit2D(Collider2D coll)
+    void OnTriggerExit2D(Collider2D coll)
     {
-        if (coll.CompareTag("Climb"))
-        {
-            canClimb = false;
-        }
+        if (coll.CompareTag("Climb")) canClimb = false;
     }
 }
