@@ -179,7 +179,7 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Dano e Vida
-    public void OnHit(float damage = 0.2f)
+    public void OnHit(float damage)
     {
         if (!canTakeHit) return;
 
@@ -188,8 +188,8 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            isDeath = true;
-            lifePoints--;
+            StartCoroutine(DeathRoutine());
+
             if (lifePoints <= 0)
             {
                 // GAME OVER
@@ -218,6 +218,17 @@ public class Player : MonoBehaviour
         canTakeHit = true;
         isInvulnerable = false;
     }
+
+    public IEnumerator DeathRoutine()
+    {
+        isDeath = true;
+        yield return new WaitForSeconds(1f);
+        isDeath = false;
+        lifePoints--;
+        health = maxHealth;
+        PlayerPos.instance.CheckPoint();
+    } 
+
     #endregion
 
     #region Plataformas

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CheckPos : MonoBehaviour
@@ -20,9 +21,7 @@ public class CheckPos : MonoBehaviour
     {
         if (coll.CompareTag("Player"))
         {
-
-            PlayerPos.instance.CheckPoint();
-            player.Health -= 0.2f;
+            player.StartCoroutine(player.DeathRoutine());
         }
     }
 }

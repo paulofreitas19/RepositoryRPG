@@ -23,7 +23,7 @@ public class Obstacle : MonoBehaviour
         if (coll.CompareTag("Player"))
         {
             anim.SetTrigger("isAttack");
-            player.OnHit();
+            player.OnHit(0.5f);
 
         }
     }
