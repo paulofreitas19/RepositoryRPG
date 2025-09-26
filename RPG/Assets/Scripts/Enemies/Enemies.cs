@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class Enemies : MonoBehaviour
 {
     private Player player;
     private Animator anim;
@@ -15,7 +15,7 @@ public class Obstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D coll)
@@ -23,7 +23,7 @@ public class Obstacle : MonoBehaviour
         if (coll.CompareTag("Player"))
         {
             anim.SetTrigger("isAttack");
-            player.OnHit(0.2f);
+            player.OnHit(0.5f);
 
         }
     }

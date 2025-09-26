@@ -10,14 +10,14 @@ public class Player : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] private int currentGold = 0;
+    [SerializeField] private float health;
     [SerializeField] private float maxHealth = 1f;
     [SerializeField] private int lifePoints = 3;
     [SerializeField] private float speed = 5f;
-    [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float climbSpeed = 3f;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float radius = 0.5f;
-    [SerializeField] private float attackAnimDuration = 0.5f;
+    [SerializeField] private float attackAnimDuration = 0.4f;
     [SerializeField] private float attackCooldown = 1f;
 
     [Header("Combat")]
@@ -26,10 +26,8 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask platformLayer;
 
     // Estado interno
-    private float health;
     private float movement;
     private float vertical;
-    private float initialSpeed;
 
     private bool isJumping;
     private bool isRunning;
@@ -62,7 +60,6 @@ public class Player : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         health = maxHealth;
-        initialSpeed = speed;
     }
 
     void Update()
@@ -186,7 +183,7 @@ public class Player : MonoBehaviour
         isHit = true;
         health -= damage;
 
-        if (health <= 0)
+        if (health <= 0.01f)
         {
             StartCoroutine(DeathRoutine());
 
