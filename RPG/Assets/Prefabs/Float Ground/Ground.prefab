@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 0}
   pointB: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 4.5
   loop: 1
   floatAmplitude: 0.2
   floatSpeed: 2
