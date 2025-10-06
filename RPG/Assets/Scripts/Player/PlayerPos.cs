@@ -3,32 +3,26 @@ using UnityEngine;
 public class PlayerPos : MonoBehaviour
 {
     private Transform player;
-
     public static PlayerPos instance;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        if(instance == null)
-        {
+        if (instance == null)
             instance = this;
-            CheckPoint();
-        }
-
         else
-        {
-            Destroy(instance);
-        }
+            Destroy(gameObject); // Corrigido: destruir o duplicado, não o instance
+    }
 
-        if(player != null)
-        {
-            CheckPoint();
-        }
+    private void Start()
+    {
+        // Define o Player apenas uma vez
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public void CheckPoint()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player").transform;
 
         Vector3 playerPos = transform.position;
         playerPos.z = 0;

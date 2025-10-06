@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: attack
+  m_Name: hit
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,15 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 2598868237486306103, guid: a19689ec037ede6439f92a44feed1675, type: 3}
+      value: {fileID: 6797817353001616755, guid: 411cafc695766634caf28b70bdc4cc66, type: 3}
     - time: 0.1
-      value: {fileID: 8960278200517875464, guid: b6e34a06bb61ea948a2d958c62c3f6b7, type: 3}
+      value: {fileID: -4399197756458509433, guid: debd55ce2eb2eec41b3248744d2efa0f, type: 3}
     - time: 0.2
-      value: {fileID: 5407164698605751720, guid: d139a16f6eeb25346b47d3c31ee85f72, type: 3}
-    - time: 0.3
-      value: {fileID: -2560589130730276045, guid: ff07f7094bae5ef4cbfc4157899b7c25, type: 3}
-    - time: 0.4
-      value: {fileID: -2399656577511229375, guid: 5cd29567e0069304ba16d913705d1a7d, type: 3}
+      value: {fileID: 9196035517698267370, guid: 3f10fdbe91118d547a55710bd015840c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -52,17 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 2598868237486306103, guid: a19689ec037ede6439f92a44feed1675, type: 3}
-    - {fileID: 8960278200517875464, guid: b6e34a06bb61ea948a2d958c62c3f6b7, type: 3}
-    - {fileID: 5407164698605751720, guid: d139a16f6eeb25346b47d3c31ee85f72, type: 3}
-    - {fileID: -2560589130730276045, guid: ff07f7094bae5ef4cbfc4157899b7c25, type: 3}
-    - {fileID: -2399656577511229375, guid: 5cd29567e0069304ba16d913705d1a7d, type: 3}
+    - {fileID: 6797817353001616755, guid: 411cafc695766634caf28b70bdc4cc66, type: 3}
+    - {fileID: -4399197756458509433, guid: debd55ce2eb2eec41b3248744d2efa0f, type: 3}
+    - {fileID: 9196035517698267370, guid: 3f10fdbe91118d547a55710bd015840c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.3
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -81,4 +75,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: PlaySFX
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 0eacb4eb5c0bde04b82f19ca2b8df9f8, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

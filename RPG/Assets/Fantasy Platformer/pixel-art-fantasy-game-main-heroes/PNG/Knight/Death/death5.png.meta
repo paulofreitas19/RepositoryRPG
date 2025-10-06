@@ -112,81 +112,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: death5_0
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 154
-        width: 13
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1d6b750cfd38afb60800000000000000
-      internalID: 7780676303263872721
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death5_1
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 135
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a867bebf7a6b34e10800000000000000
-      internalID: 2180787477179758218
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death5_2
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 142
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7d1c89819296060c0800000000000000
-      internalID: -4584548795435925033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: death5_3
       rect:
         serializedVersion: 2
-        x: 84
-        y: 94
-        width: 55
-        height: 45
+        x: 85
+        y: 95
+        width: 102
+        height: 70
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -199,33 +133,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: death5_4
-      rect:
-        serializedVersion: 2
-        x: 141
-        y: 99
-        width: 47
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c754d7befd8ff0270800000000000000
-      internalID: 8219061485586695548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bacc9e911bcaebc4195b1df4a3bdd165
     internalID: 0
     vertices: []
     indices: 

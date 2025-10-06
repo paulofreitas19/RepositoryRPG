@@ -21,7 +21,7 @@ public class CheckPos : MonoBehaviour
     {
         if (coll.CompareTag("Player"))
         {
-            player.StartCoroutine(player.DeathRoutine());
+            player.StartCoroutine(player.DeathSequence());
         }
     }
 }

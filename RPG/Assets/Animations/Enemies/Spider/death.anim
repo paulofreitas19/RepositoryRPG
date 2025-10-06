@@ -21,13 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 6250677084655228646, guid: f99d9d32fdf5e2e4391c4fa47277f044, type: 3}
+      value: {fileID: 6250677084655228646, guid: 81cc42bff9d71514ebe31843237d0013, type: 3}
     - time: 0.1
-      value: {fileID: 273349283163668261, guid: 2cc68711b59dc5640b0109c2ec86be59, type: 3}
+      value: {fileID: 273349283163668261, guid: 434e3d3a46e16f54d9e58fe173ccb7f5, type: 3}
     - time: 0.2
-      value: {fileID: -1890818448623389409, guid: 64951edef081de74189d7d680db40204, type: 3}
+      value: {fileID: -1890818448623389409, guid: 6c91cc32c3887f74fa9152b3f3abc476, type: 3}
     - time: 0.3
-      value: {fileID: -5840111467718047964, guid: ce3b2632c9113ee4ca9984452e85f846, type: 3}
+      value: {fileID: -5840111467718047964, guid: 1533dad4ff171d844ba45e4b1e3e6d99, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,10 +50,10 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 6250677084655228646, guid: f99d9d32fdf5e2e4391c4fa47277f044, type: 3}
-    - {fileID: 273349283163668261, guid: 2cc68711b59dc5640b0109c2ec86be59, type: 3}
-    - {fileID: -1890818448623389409, guid: 64951edef081de74189d7d680db40204, type: 3}
-    - {fileID: -5840111467718047964, guid: ce3b2632c9113ee4ca9984452e85f846, type: 3}
+    - {fileID: 6250677084655228646, guid: 81cc42bff9d71514ebe31843237d0013, type: 3}
+    - {fileID: 273349283163668261, guid: 434e3d3a46e16f54d9e58fe173ccb7f5, type: 3}
+    - {fileID: -1890818448623389409, guid: 6c91cc32c3887f74fa9152b3f3abc476, type: 3}
+    - {fileID: -5840111467718047964, guid: 1533dad4ff171d844ba45e4b1e3e6d99, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -64,7 +64,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -78,4 +78,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: PlaySFX
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 57ac88712c256784cb099471c953acb7, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

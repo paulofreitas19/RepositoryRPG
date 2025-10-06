@@ -1,23 +1,21 @@
-
 using UnityEngine;
+using System;
+using SysDiag = System.Diagnostics; // <- alias
 
 public class ActorSFX : MonoBehaviour
 {
-    [SerializeField]private AudioSource audioSource;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
+    [SerializeField] private AudioSource audioSource;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
         
     }
 
     public void PlaySFX(AudioClip clip)
     {
-        audioSource.PlayOneShot(clip);
+        if (clip == null) return;
+
+        if (!audioSource.isPlaying) // <-- só toca se não estiver tocando nada
+            audioSource.PlayOneShot(clip);
     }
 }

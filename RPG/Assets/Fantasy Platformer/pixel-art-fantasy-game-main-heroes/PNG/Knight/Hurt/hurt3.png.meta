@@ -103,37 +103,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hurt3_0
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 69
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ae8d746a491ee9f70800000000000000
-      internalID: 9196035517698267370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: hurt3_1
       rect:
         serializedVersion: 2
-        x: 18
-        y: 17
-        width: 60
-        height: 66
+        x: 14
+        y: 18
+        width: 63
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,7 +128,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 69b9c329d9a7b6a4c9f17a3fd5d63cd2
     internalID: 0
     vertices: []
     indices: 

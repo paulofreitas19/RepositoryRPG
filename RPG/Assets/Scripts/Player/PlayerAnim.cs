@@ -9,6 +9,8 @@ public class PlayerAnim : MonoBehaviour
     private float blinkTimer;
     [SerializeField] private float blinkInterval = 0.2f;
 
+    private bool hasPlayedDeathAnim;
+
     void Start()
     {
         player = GetComponent<Player>();
@@ -25,7 +27,15 @@ public class PlayerAnim : MonoBehaviour
     void HandleAnimations()
     {
         if (player.IsDeath)
-            anim.SetTrigger("isDeath");
+        {
+            if (!hasPlayedDeathAnim)
+            {
+                anim.SetTrigger("isDeath");
+                hasPlayedDeathAnim = true;
+            }
+            return; // impede que outras animações sobrescrevam
+        }
+
         else if (player.IsHit)
             anim.SetTrigger("isHit");
         else if (player.IsAttacking)
@@ -38,6 +48,8 @@ public class PlayerAnim : MonoBehaviour
             anim.SetInteger("transition", 1);
         else
             anim.SetInteger("transition", 0);
+
+        hasPlayedDeathAnim = false; // reseta quando sair da morte
     }
 
     void HandleInvulnerabilityBlink()

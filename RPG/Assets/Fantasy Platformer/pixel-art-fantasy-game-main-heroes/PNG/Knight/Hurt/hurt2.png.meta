@@ -106,37 +106,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hurt2_0
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 62
-        width: 12
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 78b589dc2f8e2f2c0800000000000000
-      internalID: -4399197756458509433
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: hurt2_1
       rect:
         serializedVersion: 2
-        x: 18
-        y: 17
-        width: 72
-        height: 57
+        x: 14
+        y: 18
+        width: 75
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,33 +127,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: hurt2_2
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 68
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1a3de32c8ce88b680800000000000000
-      internalID: -8739078084008946783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5bf548673f7a0a64a8414a9440640c47
     internalID: 0
     vertices: []
     indices: 

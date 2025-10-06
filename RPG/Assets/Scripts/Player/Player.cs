@@ -150,9 +150,13 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
             Collider2D hit = Physics2D.OverlapCircle(pointAttack.position, radius, enemyLayer);
+
             if (hit != null)
             {
-                // aplicar dano no inimigo
+                if (hit.GetComponent<Spider>())
+                {
+                    hit.transform.GetComponent<Spider>().OnHit(0.5f);
+                }
             }
 
             isAttacking = true;
@@ -160,6 +164,11 @@ public class Player : MonoBehaviour
 
             StartCoroutine(AttackRoutine());
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(pointAttack.position, radius);   
     }
 
     IEnumerator AttackRoutine()
@@ -180,52 +189,67 @@ public class Player : MonoBehaviour
     {
         if (!canTakeHit) return;
 
+        canTakeHit = false;
+
         isHit = true;
         health -= damage;
 
         if (health <= 0.01f)
         {
-            StartCoroutine(DeathRoutine());
-
-            if (lifePoints <= 0)
-            {
-                // GAME OVER
-            }
+            StartCoroutine(DeathSequence());
+            return; // <- importante
         }
 
-        StartCoroutine(StunTime());
-
+        //StartCoroutine(StunTime());
         StartCoroutine(RecoveryTime());
     }
 
-    private IEnumerator StunTime()
-    {
-        isInvulnerable = true;
-        isStunned = true;
-        yield return new WaitForSeconds(1.5f);
-        isStunned = false;
-        isHit = false;   
-    }
+
+    //private IEnumerator StunTime()
+    //{
+    //    isInvulnerable = true;
+    //    isStunned = true;
+    //    yield return new WaitForSeconds(1.5f);
+    //    isStunned = false;
+    //    isHit = false;   
+    //}
 
     private IEnumerator RecoveryTime()
     {
         canTakeHit = false;
         isInvulnerable = true;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         canTakeHit = true;
         isInvulnerable = false;
+        isHit = false;
     }
 
-    public IEnumerator DeathRoutine()
+    public IEnumerator DeathSequence()
     {
+        // Desativa controles
         isDeath = true;
+        isStunned = true;
+        isAttacking = false;
+        rig.linearVelocity = Vector2.zero;
+
+        // Aguarda ANIMAÇÃO acabar (confirme o tempo certo no Animator)
         yield return new WaitForSeconds(1f);
-        isDeath = false;
+
+        // === RESPAWN ===
+        PlayerPos.instance.CheckPoint();
         lifePoints--;
         health = maxHealth;
-        PlayerPos.instance.CheckPoint();
-    } 
 
+        // Aguarda 1 frame para garantir que posição foi atualizada
+        yield return null;
+
+        // Reseta estados
+        isDeath = false;
+        isHit = false;
+        canTakeHit = true;
+        isInvulnerable = false;
+
+    }
     #endregion
 
     #region Plataformas
@@ -263,6 +287,8 @@ public class Player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.CompareTag("Climb")) canClimb = true;
+
+        if (coll.gameObject.layer == 7) OnHit(0.2f);
     }
 
     void OnTriggerExit2D(Collider2D coll)
