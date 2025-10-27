@@ -38,8 +38,6 @@ public class PlayerAnim : MonoBehaviour
 
         else if (player.IsHit)
             anim.SetTrigger("isHit");
-        else if (player.IsAttacking)
-            anim.SetInteger("transition", 2);
         else if (player.IsClimbing)
             anim.SetInteger("transition", 3);
         else if (player.IsJumping)

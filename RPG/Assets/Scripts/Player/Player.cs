@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float radius = 0.5f;
     [SerializeField] private float attackAnimDuration = 0.4f;
     [SerializeField] private float attackCooldown = 1f;
+    [SerializeField] private float bounceForce = 10f;
 
     [Header("Combat")]
     [SerializeField] private Transform pointAttack;
@@ -31,15 +32,12 @@ public class Player : MonoBehaviour
 
     private bool isJumping;
     private bool isRunning;
-    private bool isAttacking;
-    private bool canAttack = true;
     private bool canClimb;
     private bool isClimbing;
     private bool isHit;
     private bool isDeath;
     private bool canTakeHit = true;
     private bool isInvulnerable;
-    private bool isStunned;
 
     #region Propriedades públicas (acessadas pelo PlayerAnim)
     public int CurrentGold { get => currentGold; set => currentGold = value; }
@@ -49,7 +47,6 @@ public class Player : MonoBehaviour
 
     public bool IsJumping { get => isJumping; }
     public bool IsRunning { get => isRunning; }
-    public bool IsAttacking { get => isAttacking; }
     public bool IsClimbing { get => isClimbing; }
     public bool IsHit { get => isHit; }
     public bool IsDeath { get => isDeath; }
@@ -65,7 +62,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         OnJump();
-        OnAttack();
         OnClimb();
         OnDropPlatform();
     }
@@ -78,13 +74,6 @@ public class Player : MonoBehaviour
     #region Movimentação
     void OnMove()
     {
-        if (isStunned)
-        {
-            rig.linearVelocity = Vector2.zero;
-            return;
-        }
-
-        if (isAttacking) return;
 
         movement = Input.GetAxis("Horizontal");
         rig.linearVelocity = new Vector2(movement * speed, rig.linearVelocity.y);
@@ -144,46 +133,6 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    #region Combate
-    void OnAttack()
-    {
-        if (Input.GetMouseButtonDown(0) && canAttack)
-        {
-            Collider2D hit = Physics2D.OverlapCircle(pointAttack.position, radius, enemyLayer);
-
-            if (hit != null)
-            {
-                if (hit.GetComponent<Spider>())
-                {
-                    hit.transform.GetComponent<Spider>().OnHit(0.5f);
-                }
-            }
-
-            isAttacking = true;
-            canAttack = false;
-
-            StartCoroutine(AttackRoutine());
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(pointAttack.position, radius);   
-    }
-
-    IEnumerator AttackRoutine()
-    {
-        yield return new WaitForSeconds(attackAnimDuration);
-        isAttacking = false;
-
-        float remaining = attackCooldown - attackAnimDuration;
-        if (remaining > 0f)
-            yield return new WaitForSeconds(remaining);
-
-        canAttack = true;
-    }
-    #endregion
-
     #region Dano e Vida
     public void OnHit(float damage)
     {
@@ -200,36 +149,24 @@ public class Player : MonoBehaviour
             return; // <- importante
         }
 
-        //StartCoroutine(StunTime());
         StartCoroutine(RecoveryTime());
     }
 
-
-    //private IEnumerator StunTime()
-    //{
-    //    isInvulnerable = true;
-    //    isStunned = true;
-    //    yield return new WaitForSeconds(1.5f);
-    //    isStunned = false;
-    //    isHit = false;   
-    //}
-
     private IEnumerator RecoveryTime()
     {
+        yield return new WaitForSeconds(0.01f);
+        isHit = false;
         canTakeHit = false;
         isInvulnerable = true;
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         canTakeHit = true;
-        isInvulnerable = false;
-        isHit = false;
+        isInvulnerable = false;   
     }
 
     public IEnumerator DeathSequence()
     {
         // Desativa controles
         isDeath = true;
-        isStunned = true;
-        isAttacking = false;
         rig.linearVelocity = Vector2.zero;
 
         // Aguarda ANIMAÇÃO acabar (confirme o tempo certo no Animator)
@@ -273,6 +210,7 @@ public class Player : MonoBehaviour
 
         Physics2D.IgnoreCollision(playerCollider, platform, false);
     }
+
     #endregion
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -289,6 +227,14 @@ public class Player : MonoBehaviour
         if (coll.CompareTag("Climb")) canClimb = true;
 
         if (coll.gameObject.layer == 7) OnHit(0.2f);
+
+        if (coll.CompareTag("Enemy"))
+        {
+            coll.GetComponent<Enemy>().OnHit(1f);
+
+            // Bounce Mario-style
+            rig.linearVelocity = new Vector2(rig.linearVelocity.x, bounceForce);
+        }
     }
 
     void OnTriggerExit2D(Collider2D coll)
