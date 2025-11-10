@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     private bool isDeath;
     private bool canTakeHit = true;
     private bool isInvulnerable;
+    public bool isStomping = false;
 
     #region Propriedades públicas (acessadas pelo PlayerAnim)
     public int CurrentGold { get => currentGold; set => currentGold = value; }
@@ -69,6 +70,11 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         OnMove();
+    }
+
+    void LateUpdate()
+    {
+        isStomping = false;
     }
 
     #region Movimentação
@@ -137,6 +143,8 @@ public class Player : MonoBehaviour
     public void OnHit(float damage)
     {
         if (!canTakeHit) return;
+
+        if (isStomping) return; // ignore dano ao stomp
 
         canTakeHit = false;
 

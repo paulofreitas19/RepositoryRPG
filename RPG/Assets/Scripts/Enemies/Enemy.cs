@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
 
         health -= damage;
 
-        if (health <= 0.01f)
+        if (health <= 0.01f) 
         {
             speed = 0;
             anim.SetTrigger("isDeath");
