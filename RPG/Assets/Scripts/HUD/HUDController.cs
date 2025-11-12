@@ -9,7 +9,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private Text currentGoldText;
 
-    private Enemy spider;
+    private Spider spider;
 
     [SerializeField] private Image enemyBar;
 
@@ -20,7 +20,7 @@ public class HUDController : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         healthBar.fillAmount = player.MaxHealth;
-        spider = FindFirstObjectByType<Enemy>();
+        spider = FindFirstObjectByType<Spider>();
         enemyBar.fillAmount = spider.MaxHealth;
     }
 

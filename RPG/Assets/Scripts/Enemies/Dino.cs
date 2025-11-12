@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Dino : MonoBehaviour
@@ -14,7 +15,13 @@ public class Dino : MonoBehaviour
     public bool isRight;
     private bool isAttacking;
     public float attackDistance;
-    public float hp;
+    public float health;
+
+    private bool isInvulnerable;
+    private bool isStunned;
+    private SpriteRenderer spriteRenderer;
+    private float blinkTimer;
+    [SerializeField] private float blinkInterval = 0.2f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -131,16 +138,44 @@ public class Dino : MonoBehaviour
 
     }
 
-    public void OnHit()
+    public void OnHit(float damage)
     {
-        anim.SetTrigger("hit");
-        hp--;
+        anim.SetTrigger("isHit");
 
-        if (hp <= 0)
+        health -= damage;
+
+        if (health <= 0.01f)
         {
             speed = 0;
-            anim.SetTrigger("death");
-            Destroy(gameObject, 1f);
+            anim.SetTrigger("isDeath");
+            Destroy(gameObject, 0.4f);
+        }
+
+        StartCoroutine(StunTime());
+
+    }
+
+    private IEnumerator StunTime()
+    {
+        isInvulnerable = true;
+        isStunned = true;
+        yield return new WaitForSeconds(1f);
+        isStunned = false;
+    }
+
+    void HandleInvulnerabilityBlink()
+    {
+        if (isInvulnerable)
+        {
+            spriteRenderer.enabled = true;
+            return;
+        }
+
+        blinkTimer += Time.deltaTime;
+        if (blinkTimer >= blinkInterval)
+        {
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+            blinkTimer = 0;
         }
     }
 

@@ -236,13 +236,12 @@ public class Player : MonoBehaviour
 
         if (coll.gameObject.layer == 7) OnHit(0.2f);
 
-        if (coll.CompareTag("Enemy"))
+        if (coll.CompareTag("Player"))
         {
-            coll.GetComponent<Enemy>().OnHit(1f);
-
-            // Bounce Mario-style
+            //Bounce Mario-style
             rig.linearVelocity = new Vector2(rig.linearVelocity.x, bounceForce);
         }
+
     }
 
     void OnTriggerExit2D(Collider2D coll)

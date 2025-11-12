@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     private Player player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,11 +20,18 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            var player = GetComponentInParent<Player>();
-            player.isStomping = true;
 
-            collision.GetComponent<Dino>().OnHit(); // ou aplicar dano
+            if (collision.GetComponent<Spider>())
+            {
+                collision.GetComponent<Spider>().OnHit(0.5f); 
+            }
 
+            if (collision.GetComponent<Dino>())
+            {
+                collision.GetComponent<Dino>().OnHit(0.5f); 
+            }
+
+            
         }
     }
 }
