@@ -3,35 +3,30 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     private Player player;
+    [SerializeField] private float bounceForce = 10f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GetComponentInParent<Player>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-
+            // O player pula na cabeça do inimigo — aplica dano no inimigo
             if (collision.GetComponent<Spider>())
-            {
-                collision.GetComponent<Spider>().OnHit(0.5f); 
-            }
+                collision.GetComponent<Spider>().OnHit(0.5f);
 
             if (collision.GetComponent<Dino>())
-            {
-                collision.GetComponent<Dino>().OnHit(0.5f); 
-            }
+                collision.GetComponent<Dino>().OnHit(0.5f);
 
-            
+            // Impulso de "rebote" para cima
+            Rigidbody2D rig = player.GetComponent<Rigidbody2D>();
+            rig.linearVelocity = new Vector2(rig.linearVelocity.x, bounceForce);
+
+            // Protege o player temporariamente para não tomar dano do inimigo
+            player.StartCoroutine(player.TemporaryInvulnerability(0.3f));
         }
     }
 }

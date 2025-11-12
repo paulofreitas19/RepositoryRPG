@@ -17,9 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float climbSpeed = 3f;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float radius = 0.5f;
-    [SerializeField] private float attackAnimDuration = 0.4f;
-    [SerializeField] private float attackCooldown = 1f;
-    [SerializeField] private float bounceForce = 10f;
+
 
     [Header("Combat")]
     [SerializeField] private Transform pointAttack;
@@ -144,8 +142,6 @@ public class Player : MonoBehaviour
     {
         if (!canTakeHit) return;
 
-        if (isStomping) return; // ignore dano ao stomp
-
         canTakeHit = false;
 
         isHit = true;
@@ -195,6 +191,20 @@ public class Player : MonoBehaviour
         isInvulnerable = false;
 
     }
+
+    public IEnumerator TemporaryInvulnerability(float duration)
+    {
+        if (isInvulnerable) yield break; // evita empilhar
+        isInvulnerable = true;
+        canTakeHit = false;
+
+        yield return new WaitForSeconds(duration);
+
+        canTakeHit = true;
+        isInvulnerable = false;
+    }
+
+
     #endregion
 
     #region Plataformas
@@ -234,13 +244,7 @@ public class Player : MonoBehaviour
     {
         if (coll.CompareTag("Climb")) canClimb = true;
 
-        if (coll.gameObject.layer == 7) OnHit(0.2f);
-
-        if (coll.CompareTag("Player"))
-        {
-            //Bounce Mario-style
-            rig.linearVelocity = new Vector2(rig.linearVelocity.x, bounceForce);
-        }
+        if (coll.gameObject.layer == 7 && !isInvulnerable) OnHit(0.2f);
 
     }
 
